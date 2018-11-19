@@ -2,3 +2,8 @@
 
 La base de datos que tenemos 
 Julen y miguel estan rellenando un campo que tenemos cuasi-vacio
+
+
+Xabi: He hecho el login por ahora para que funcione con la base de datos que hicimos de prueba    (funciona)
+
+Hay fallos ortograficos en la base de datos julen esta revisando
