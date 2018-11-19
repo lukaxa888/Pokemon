@@ -6,7 +6,7 @@ $contra=$_POST["password"];
 $servername="localhost:3306";
 $username="root";
 $password="Admin1234";
-$dbname="asirweb";
+$dbname="Pokemon";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -14,7 +14,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$select = "SELECT user FROM login WHERE user = '$usuario' AND pass = '$contra'";
+$select = "SELECT Nombre FROM usuarios WHERE Nombre = '$usuario' AND Contraseña = '$contra'";
 
 
 $query = $conn -> query("$select");
@@ -22,17 +22,8 @@ $query = $conn -> query("$select");
 
 if ($query->num_rows > 0)
 {  
-header('Location: usuarios.php');
+header('Location: funcionaprueba.html');
 
-/*
-         $fila['user'].$fila['pass'];
-
-            if($fila['user'] == $usuario && $fila['pass'] == $contra){
-                echo"hola";
-            }
-            */
-       
-       //esto de arriba innecesario si entra al while es porque funciona
 
 }
 
