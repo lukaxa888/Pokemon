@@ -1,1 +1,6 @@
 # Pokemon
+
+
+Xabi
+Miguel
+Julen
