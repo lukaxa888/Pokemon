@@ -14,8 +14,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$insert = "INSERT Nombre FROM usuarios WHERE Nombre = '$usuario' AND Contraseña = '$contra'";
-
+$insert = "INSERT INTO 'usuarios'('Nombre', 'Contraseña') VALUES ('$user_1','$hash')";
 
 $query = $conn -> query("$insert");
 
