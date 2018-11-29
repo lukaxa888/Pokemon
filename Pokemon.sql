@@ -34,69 +34,6 @@ CREATE DATABASE IF NOT EXISTS `Pokemon`;
 USE `Pokemon`;
 
 #
-# Table structure for table '~TMPCLP244481'
-#
-
-DROP TABLE IF EXISTS `~TMPCLP244481`;
-
-CREATE TABLE `~TMPCLP244481` (
-  `Id` INTEGER NOT NULL AUTO_INCREMENT, 
-  PRIMARY KEY (`Id`)
-) ENGINE=myisam DEFAULT CHARSET=utf8;
-
-SET autocommit=1;
-
-#
-# Dumping data for table '~TMPCLP244481'
-#
-
-# 0 records
-
-#
-# Table structure for table '~TMPCLP26131'
-#
-
-DROP TABLE IF EXISTS `~TMPCLP26131`;
-
-CREATE TABLE `~TMPCLP26131` (
-  `Nombre` VARCHAR(255) NOT NULL, 
-  `PVenta` VARCHAR(255), 
-  `Generacion` VARCHAR(255), 
-  `PCompra` VARCHAR(255), 
-  `Objeto evolución` TINYINT(1) DEFAULT 0, 
-  PRIMARY KEY (`Nombre`)
-) ENGINE=myisam DEFAULT CHARSET=utf8;
-
-SET autocommit=1;
-
-#
-# Dumping data for table '~TMPCLP26131'
-#
-
-# 0 records
-
-#
-# Table structure for table '~TMPCLP607281'
-#
-
-DROP TABLE IF EXISTS `~TMPCLP607281`;
-
-CREATE TABLE `~TMPCLP607281` (
-  `NomPokemon` VARCHAR(255) NOT NULL, 
-  `Condicion` VARCHAR(255), 
-  `Evolucion` VARCHAR(255), 
-  PRIMARY KEY (`NomPokemon`)
-) ENGINE=myisam DEFAULT CHARSET=utf8;
-
-SET autocommit=1;
-
-#
-# Dumping data for table '~TMPCLP607281'
-#
-
-# 0 records
-
-#
 # Table structure for table 'Categoria'
 #
 
