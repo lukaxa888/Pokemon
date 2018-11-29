@@ -2,6 +2,7 @@
 
 $usuario=$_POST["user"];
 $contra=$_POST["password"];
+$hash=password_hash($contra, PASSWORD_DEFAULT);
 
 $servername="localhost:3306";
 $username="root";
@@ -14,17 +15,17 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$insert = "INSERT INTO 'usuarios'('Nombre', 'Contraseña') VALUES ('$user_1','$hash')";
-
+$insert = "INSERT INTO usuarios(Nombre, Contraseña) VALUES ('$usuario','$hash')";
+//echo $insert;
 $query = $conn -> query("$insert");
 
 
-if ($query->num_rows > 0)
-{  
+
+  
 header('Location: funcionaprueba.html');
 
 
-}
+
 
 
 ?>
