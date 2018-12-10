@@ -28,7 +28,7 @@ $hash=$row[0];
 
 
 if (password_verify($pass, $hash)){
-  echo header('Location: '.'arduino_2.php');
+  echo header('Location: '.'inicio.html');
 }
 else{
   echo header('Location: '.'login.php');
