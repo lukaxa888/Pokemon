@@ -1,7 +1,6 @@
 //1- Select de pokemon de cada usuario.
 
-SELECT Usuarios.Nombre AS Usuario, Pokedex.NumPokemon AS NumPokemon, Pokedex.NomPokemon AS Pokemon, Pokedex.Tipo, Pokedex.Especie
-FROM Pokedex INNER JOIN (Usuarios INNER JOIN PokeUsuarios ON Usuarios.Id = PokeUsuarios.IdUsuario) ON Pokedex.NumPokemon = PokeUsuarios.IdPokemon 
+SELECT Usuarios.Nombre AS Usuario, Pokedex.NumPokemon AS NumPokemon, Pokedex.NomPokemon AS Pokemon, Pokedex.Tipo, Pokedex.Tipo2, Pokedex.Especie
+FROM Usuarios INNER JOIN (Tipos INNER JOIN (Pokedex INNER JOIN PokeUsuarios ON Pokedex.NumPokemon = PokeUsuarios.IdPokemon) ON Tipos.Tipo = Pokedex.Tipo) ON Usuarios.Id = PokeUsuarios.IdUsuario
 WHERE Usuarios.Nombre = "$user" /*esta variable esta sujeta a posibles cambios*/
-ORDER BY Usuarios.Nombre, Pokedex.NumPokemon ASC;
-
+ORDER BY Usuarios.Id, Pokedex.NumPokemon;
