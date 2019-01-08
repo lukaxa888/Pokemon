@@ -4,3 +4,10 @@ SELECT Usuarios.Nombre AS Usuario, Pokedex.NumPokemon AS NumPokemon, Pokedex.Nom
 FROM Usuarios INNER JOIN (Tipos INNER JOIN (Pokedex INNER JOIN PokeUsuarios ON Pokedex.NumPokemon = PokeUsuarios.IdPokemon) ON Tipos.Tipo = Pokedex.Tipo) ON Usuarios.Id = PokeUsuarios.IdUsuario
 WHERE Usuarios.Nombre = "Xabi"
 ORDER BY Usuarios.Id, Pokedex.NumPokemon;
+
+//2-Select por region
+
+SELECT Pokedex.NumPokemon, Pokedex.NomPokemon, Pokedex.Tipo, Pokedex.Tipo2
+FROM Generacion INNER JOIN Pokedex ON Generacion.Generacion = Pokedex.Generacion
+WHERE (((Pokedex.generacion)=1))
+ORDER BY Pokedex.NumPokemon;
