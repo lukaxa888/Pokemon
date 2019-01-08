@@ -1,3 +1,10 @@
+
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {   
+    header('Location: '."../login.html");
+}
+?>
 <!doctype html>
 <html>
   <head>
@@ -19,7 +26,7 @@
     <br><br><br><br><br><br>
     <br><br><br>
     <center>
-      <a href="inicio.html"><img src="inicio.png"></a>
+      <a href="inicio.php"><img src="inicio.png"></a>
       <br><br>
       <table>
         <tr>

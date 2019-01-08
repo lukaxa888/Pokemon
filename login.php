@@ -22,8 +22,12 @@ $query = $conn -> query("$select");
 
 if ($query->num_rows > 0)
 {  
-header('Location: funcionaprueba.html');
+    session_start();
+    $_SESSION['user'] = $usuario;
+    header('Location: PokemonAplicacionesWeb/inicio.php');
 
+
+} else {  header('Location: login.html');
 
 }
 

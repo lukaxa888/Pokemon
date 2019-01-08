@@ -1,4 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {   
+    header('Location: '."../login.html");
+}
+?>
 <!doctype html>
+
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="inicio.css">
@@ -9,9 +16,9 @@
 
 <span><span></span></span>
 <div class="wrap">
-  <a href="pokedex.html"><div></div></a>
-  <a href="regiones.html"><div></div></a>
-  <a href="tipos.html"><div></div></a>
+  <a href="pokedex.php"><div></div></a>
+  <a href="regiones.php"><div></div></a>
+  <a href="tipos.php"><div></div></a>
   <a href="#"><div></div></a>
   <a href="#"><div></div></a>
 </div>
