@@ -35,10 +35,7 @@ if (password_verify($contra, $hash)){
     header('Location: PokemonAplicacionesWeb/inicio.php');
 
 
-}
-
-
-else{
+} else{
  echo header('Location: '.'login.php');
  
 }
