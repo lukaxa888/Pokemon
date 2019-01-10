@@ -3,8 +3,8 @@
 //datos de nuestro mysql
 $servername = "localhost:3306";
 $username = "root";
-$password ="";
-$db ="pokemon";
+$password ="Admin1234";
+$db ="Pokemon";
 
 //crear conexion
 
@@ -17,10 +17,10 @@ if (!$conn)
   }
 //echo "Conexion creada";
 
-$name = $_POST['Usuario'];
-$pass = $_POST['Contraseña'];
+$usuario = $_POST['user'];
+$contra = $_POST['password'];
 
-$query = "SELECT Contraseña FROM usuarios WHERE Nombre = '$name'";
+$query = "SELECT Contraseña FROM usuarios WHERE Nombre = '$usuario'";
 $result = mysqli_query($conn, $query);
  
 $row = mysqli_fetch_array($result, MYSQLI_NUM);
@@ -28,11 +28,19 @@ $row = mysqli_fetch_array($result, MYSQLI_NUM);
 $hash=$row[0];
 
 
-if (password_verify($pass, $hash)){
-  echo header('Location: '.'inicio.php');
-}
-else{
-  echo header('Location: '.'login.php');
+if (password_verify($contra, $hash)){
+  
+    session_start();
+    $_SESSION['user'] = $usuario;
+    header('Location: PokemonAplicacionesWeb/inicio.php');
+
+
 }
 
->>>>>>> 179f75c1899c8a939eabf4903e972a87e1c53a67
+
+else{
+ echo header('Location: '.'login.php');
+ 
+}
+
+?>

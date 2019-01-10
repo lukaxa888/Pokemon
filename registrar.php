@@ -20,9 +20,9 @@ $insert = "INSERT INTO usuarios(Nombre, Contraseña) VALUES ('$usuario','$hash')
 $query = $conn -> query("$insert");
 
 
-
-  
-header('Location: funcionaprueba.html');
+session_start();
+    $_SESSION['user'] = $usuario;
+    header('Location: PokemonAplicacionesWeb/inicio.php');
 
 
 
