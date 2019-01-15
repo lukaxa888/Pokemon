@@ -29,9 +29,9 @@
 #   datetimetype=DATETIME
 #
 
-DROP DATABASE IF EXISTS `pokedex`;
-CREATE DATABASE IF NOT EXISTS `pokedex`;
-USE `pokedex`;
+DROP DATABASE IF EXISTS `Pokemon `;
+CREATE DATABASE IF NOT EXISTS `Pokemon`;
+USE `Pokemon`;
 
 #
 # Table structure for table 'Categoria'
