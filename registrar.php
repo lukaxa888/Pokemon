@@ -15,16 +15,11 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$insert = "INSERT INTO usuarios(Nombre, Contraseña) VALUES ('$usuario','$hash')";
+$insert = "INSERT INTO usuarios(Nombre, Contrasena) VALUES ('$usuario','$hash')";
 //echo $insert;
 $query = $conn -> query("$insert");
 
-
-session_start();
-    $_SESSION['user'] = $usuario;
-    header('Location: PokemonAplicacionesWeb/inicio.php');
-
-
+echo header('Location: '.'index.php');
 
 
 

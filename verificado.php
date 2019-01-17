@@ -30,13 +30,17 @@ $hash=$row[0];
 
 if (password_verify($contra, $hash)){
   
+    
     session_start();
     $_SESSION['user'] = $usuario;
+    $_SESSION['error'] = 0;
     header('Location: PokemonAplicacionesWeb/inicio.php');
-
+  
+  
 
 } else{
- echo header('Location: '.'login.php');
+  $_SESSION['error'] = 1;
+ echo header('Location: '.'index.php');
  
 }
 
