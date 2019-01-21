@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 //datos de nuestro mysql
 $servername = "localhost:3306";
 $username = "root";
@@ -31,7 +32,7 @@ $hash=$row[0];
 if (password_verify($contra, $hash)){
   
     
-  session_start();
+  
     $_SESSION['user'] = $usuario;
     $_SESSION['error'] = 0;
     header('Location: PokemonAplicacionesWeb/inicio.php');
