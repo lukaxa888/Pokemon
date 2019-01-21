@@ -20,7 +20,7 @@ if (!$conn)
 $usuario = $_POST['user'];
 $contra = $_POST['password'];
 
-$query = "SELECT Contraseña FROM usuarios WHERE Nombre = '$usuario'";
+$query = "SELECT Contrasena FROM usuarios WHERE Nombre = '$usuario'";
 $result = mysqli_query($conn, $query);
  
 $row = mysqli_fetch_array($result, MYSQLI_NUM);
@@ -31,17 +31,20 @@ $hash=$row[0];
 if (password_verify($contra, $hash)){
   
     
-    session_start();
+  session_start();
     $_SESSION['user'] = $usuario;
     $_SESSION['error'] = 0;
     header('Location: PokemonAplicacionesWeb/inicio.php');
-  
+ 
   
 
-} else{
+} 
+
+else{
   $_SESSION['error'] = 1;
  echo header('Location: '.'index.php');
- 
-}
+
+} 
+
 
 ?>

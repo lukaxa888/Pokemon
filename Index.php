@@ -16,5 +16,10 @@ if (isset($_SESSION['error'])) {
 }
 // Render our view
 
+
+
+
+
+
     echo $twig->render('login.html', ['error' => $error] );
 }
