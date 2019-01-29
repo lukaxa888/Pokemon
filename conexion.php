@@ -15,8 +15,5 @@ if (!$conn)
   die("Conexion fallida: " . mysqli_connect_error());
   }
 //echo "Conexion creada";
-$servername = "localhost:3306";
-$username = "root";
-$password ="Admin1234";
-$db ="Pokemon";
+
 ?>

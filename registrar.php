@@ -1,5 +1,9 @@
 <?php
 include 'conexion.php';
+
+
+
+
 $usuario=$_POST["user"];
 $contra=$_POST["password"];
 $hash=password_hash($contra, PASSWORD_DEFAULT);
@@ -14,4 +18,5 @@ echo header('Location: '.'index.php');
 
 
 ?>
+
 
