@@ -1,29 +1,7 @@
 <<<<<<< HEAD
 <?php
 
-//variables de nuestro formulario htm
-//$nombre = $_POST['nombre'];
-//$contrasena = $_POST['contrasena'];
-
-
-//datos de mysql
-$servername = "localhost:3306";
-$username = "root";
-$password ="";
-$db ="pokemon";
-
-//crear conexion
-
-$conn = mysqli_connect($servername,$username,$password,$db);
-
-//comprobar conexion !siginifica lo contrario
-if (!$conn)
-  {
-  die("Conexion fallida: " . mysqli_connect_error());
-  }
-  //echo "Conexion creada";
-
-  //leer informacion del formulario
+include 'conexion.php';
 $user_1 = $_POST['Usuario'];
 $pass =$_POST['Contraseña'];
 $hash = password_hash($pass, PASSWORD_DEFAULT);
@@ -40,24 +18,7 @@ $result = mysqli_query($conn, $query);
 //$contrasena = $_POST['contrasena'];
 
 
-//datos de mysql
-$servername = "localhost:3306";
-$username = "root";
-$password ="";
-$db ="pokemon";
 
-//crear conexion
-
-$conn = mysqli_connect($servername,$username,$password,$db);
-
-//comprobar conexion !siginifica lo contrario
-if (!$conn)
-  {
-  die("Conexion fallida: " . mysqli_connect_error());
-  }
-  //echo "Conexion creada";
-
-  //leer informacion del formulario
 $user_1 = $_POST['Usuario'];
 $pass =$_POST['Contraseña'];
 $hash = password_hash($pass, PASSWORD_DEFAULT);
