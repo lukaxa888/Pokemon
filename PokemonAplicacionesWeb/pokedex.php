@@ -1,110 +1,194 @@
 <?php
 session_start();
 if (!isset($_SESSION['user'])) {   
-    header('Location: '."../login.html");
+    header('Location: '."../index.php");
 }
+include '../conexion.php';
+
+ 
+$query = "SELECT NumPokemon, Foto, NomPokemon, Especie, Tipo, Tipo2 FROM pokedex order by Numpokemon";
+ 
+$result = mysqli_query($conn, $query);
+ 
+
+
+
 ?>
-<!doctype html>
-<html>
+<html lang="es-ES">
   <head>
-    <title>Pokedex</title>
-    <style type="text/css">
-      table {
-              border-collapse: separate;
-              border-spacing: 5px;
-              background: #000 url("gradient.gif") bottom left repeat-x;
-              color: #fff;
-            }
-      td, th {
-              background: #fff;
-              color: #000;
-            }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Pokemon</title>
+    <style>
+   
+   table {
+    border-collapse: collapse;
+    width: 100%;
+    }
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+    tr:nth-child(even) {background-color: #f2f2f2;}  
+    
+    body {
+    background-image: url(fondo.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    }
+    .cuerpo{
+    width: 50%;
+    height: 10%;
+    }
+.menu{
+  width: 50%;
+}
+
+#dialog-window {
+  height: 590px;
+}
+
+#scrollable-content {
+  height: 590px;
+  overflow: auto;
+}
+
+#footer {
+  height: 20px;
+}
+
+nav {
+  max-width: 960px;
+  mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+  margin: 0 auto;
+}
+
+nav ul {
+  text-align: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  padding: 18px;
+  font-family: "Open Sans";
+  text-transform:uppercase;
+  color: rgba(0, 35, 122, 0.5);
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+}
+
+nav ul li a:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 35, 122, 0.7);
+}
+
+</style>
   </head>
-  <body background="fondo.png">
+  <body>
     <br><br><br><br><br><br>
-    <br><br><br>
+    <br><br><br><br><br><br>
     <center>
-      <a href="inicio.php"><img src="inicio.png"></a>
-      <br>
+    <div class="menu">
+      <nav>
+  <ul>
+    <li>
+      <a href="inicio.php">Inicio</a>
+    </li>
+    <li>
+      <a href="pokedexx.php">Pokedex</a>
+    </li>
+    <li>
+      <a href="#">Mis Pokemon</a>
+    </li>
+    <li>
+      <a href="#">Cerrar Sesion</a>
+    </li>
+  </ul>
+</nav>
+    </div>
     <br><br>
-      <table border=1 cellspacing=0 cellpadding=2 bordercolor="666633">
-        <tr>
-          <td colspan="2">
-            <img src="pokemons/330.png" width="180" height="180">
-          </td>
-          <td colspan="5">
-             Su nombre proviene de las palabras en inglés fly (volar) y dragon (dragón). También podría tratarse de<br>un anagrama de la palabra dragonfly (libélula), por su parecido a estos insectos. Este mismo juego de<br>palabras entre libélula y dragón se ve más claramente en sus nombres en alemán (Libelldra) y francés (Libegon).
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <center>
-              <img src="tipos/ground.png" width="80" height="80">
-            </center>
-          </td>
-          <td>
-            <center>
-              <img src="tipos/dragon.png" width="80" height="80">
-            </center>
-          </td>
-          <td>
-            <center>
-              <img src="pokemons/328.png" width="90" height="90">
-            </center>
-          </td>
-          <td>
-            <center>
-              <img src="iconos/flecha.png" width="50" height="50">
-            </center>
-          </td>
-          <td>
-            <center>
-              <img src="pokemons/329.png" width="90" height="90">
-            </center>
-          </td>
-          <td>
-            <center>
-              <img src="iconos/flecha.png" width="50" height="50">
-            </center>
-          </td>
-          <td>
-            <center>
-              <img src="pokemons/330.png" width="90" height="90">
-            </center>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <img src="pokemons/331.png" width="180" height="180">
-          </td>
-          <td colspan="5">
-             Su nombre proviene de las palabra inglesa cactus (cactus).<br>Su nombre japonés, Sabonea, procede de 仙人掌 saboten (cactus).
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <center>
-              <img src="tipos/grass.png" width="80" height="80">
-            </center>
-          </td>
-          <td colspan="2">
-            <center>
-              <img src="pokemons/331.png" width="90" height="90">
-            </center>
-          </td>
-          <td>
-            <center>
-              <img src="iconos/flecha.png" width="50" height="50">
-            </center>
-          </td>
-          <td colspan="2">
-            <center>
-              <img src="pokemons/332.png" width="90" height="90">
-            </center>
-          </td>
-        </tr>
-      </table>
+    <div class="cuerpo">
+<div id="dialog-window">
+  <div id="scrollable-content">
+  <table>
+  <?php
+    
+    while($row = mysqli_fetch_array($result)){
+   
+ 
+?>
+
+   <tr>
+
+    <td>
+        <?php echo $row[0] ?>
+    </td>
+    <td>
+        <img src="pokemons/<?php echo $row[1]?>" width="100px" heigth="100px">
+    </td>
+    <td>
+        <?php echo $row[2] ?>
+    </td>
+    <td>
+        <?php echo $row[3] ?>
+    </td>
+    <td>
+    <img src="tipos/<?php echo $row[4]?>.png" width="80px" heigth="80px">
+    </td>
+    <td>
+    <img src="tipos/<?php echo $row[5]?>.png" width="80px" heigth="80px">
+    </td>
+    <td>
+    <input type=checkbox id='ckb' value='<?php echo $row[0] ?>'>
+    </td>
+    
+    </tr>
+    
+<?php
+
+
+
+
+}  // while
+?>
+</table>  
+<script>
+    $(document).ready(function() {
+    //set initial state.
+    
+    
+    $("input[type='checkbox']").click(function() {
+        if ($(this).is(':checked')) {
+            $.post( "insert.php", { IdUsuario:"2", IdPokemon: $(this).val()}, function( data ) {
+                console.log(data);
+            });
+      
+            //alert("checked");
+        }
+        else{
+            $.post( "delete.php", { IdUsuario:"2", IdPokemon: $(this).val()}, function( data ) {
+                console.log(data);
+            });
+             //alert("Not checked");
+            }
+    });
+});
+</script>
+  </div>
+
+  <div id="footer">
+  </div>
+
+</div>
+</div>
     </center>
   </body>
 </html>

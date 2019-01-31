@@ -27,7 +27,7 @@ if (password_verify($contra, $hash)){
   
     $_SESSION['user'] = $usuario;
     $_SESSION['error'] = 0;
-    header('Location: PokemonAplicacionesWeb/inicio.php');
+    header('Location: PokemonAplicacionesWeb/pokedex.php');
  
   
 
