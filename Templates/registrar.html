@@ -229,7 +229,7 @@ top.window.outerWidth = screen.availWidth;
   						<h2>REGISTRATE</h2>
   						Crea tu cuenta aqui
   					</center>
-    		<form action="registrar.php" method="POST">
+    		<form action="registro.php" method="POST">
 				<div class="input-group input-group-lg">
         			<span class="input-group-addon"><i class="fa fa-user"></i></span>
         				<input type="text" name="user" class="form-control">
@@ -239,7 +239,9 @@ top.window.outerWidth = screen.availWidth;
           			<span class="input-group-addon"><i class="fa fa-lock"></i></span>
           				<input type="password" name="password" class="form-control">
         		</div>
-        	
+            {% if registro == 1 %}
+            <p>Mismo usuario</p>
+               {% endif %}
             <BR><BR>
                 <input name="submit" type="submit" value=" Registrate">
         			</form>

@@ -1,6 +1,8 @@
 <?php
 include 'conexion.php';
-
+require_once 'vendor/autoload.php';
+$loader = new Twig_Loader_Filesystem('templates');
+$twig = new Twig_Environment($loader);
 $usuario=$_POST["user"];
 $contra=$_POST["password"];
 
@@ -12,8 +14,9 @@ $row = mysqli_fetch_array($result, MYSQLI_NUM);
 
 
 if($row){
-    $_SESSION['error'] = 1;
-    echo $twig->render('registrar.html', ['error' => $erroruser] );
+    $registro = 1;
+    
+     echo $twig->render('registrar.html', ['registro' => $registro] );
 }
 
 
