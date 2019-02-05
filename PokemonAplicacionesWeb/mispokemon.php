@@ -4,10 +4,10 @@ if (!isset($_SESSION['user'])) {
     header('Location: '."../index.php");
 }
 include '../conexion.php';
+$usuario = $_SESSION['user'];
+ 
+$query = "SELECT Pokedex.NumPokemon AS NumPokemon, Pokedex.foto, Pokedex.NomPokemon AS Pokemon, Pokedex.Tipo, Pokedex.Tipo2, Pokedex.Especie FROM Usuarios INNER JOIN (Tipos INNER JOIN (Pokedex INNER JOIN PokeUsuarios ON Pokedex.NumPokemon = PokeUsuarios.IdPokemon) ON Tipos.Tipo = Pokedex.Tipo) ON Usuarios.Id = PokeUsuarios.IdUsuario WHERE Usuarios.Nombre = '$usuario' ORDER BY Usuarios.Id, Pokedex.NumPokemon;";
 
- 
-$query = "SELECT NumPokemon, Foto, NomPokemon, Especie, Tipo, Tipo2 FROM pokedex order by Numpokemon";
- 
 $result = mysqli_query($conn, $query);
  
 
@@ -109,7 +109,7 @@ nav ul li a:hover {
       <a href="mispokemon.php">Mis Pokemon</a>
     </li>
     <li>
-      <a href="../cerrarsesion.php">Cerrar Sesion</a>
+    <a href="../cerrarsesion.php">Cerrar Sesion</a>
     </li>
   </ul>
 </nav>
@@ -120,7 +120,11 @@ nav ul li a:hover {
   <div id="scrollable-content">
   <table>
   <?php
-    
+    if(!$result){
+      echo "$result";
+    }
+    else
+    {
     while($row = mysqli_fetch_array($result)){
    
  
@@ -138,16 +142,10 @@ nav ul li a:hover {
         <?php echo $row[2] ?>
     </td>
     <td>
-        <?php echo $row[3] ?>
+    <img src="tipos/<?php echo $row[3]?>.png" width="80px" heigth="80px">
     </td>
     <td>
     <img src="tipos/<?php echo $row[4]?>.png" width="80px" heigth="80px">
-    </td>
-    <td>
-    <img src="tipos/<?php echo $row[5]?>.png" width="80px" heigth="80px">
-    </td>
-    <td>
-    <input type=checkbox id='ckb' value='<?php echo $row[0] ?>'>
     </td>
     
     </tr>
@@ -157,31 +155,10 @@ nav ul li a:hover {
 
 
 
-}  // while
+} } // while
 ?>
 </table>  
-<script>
-    $(document).ready(function() {
-    //set initial state.
-    
-    
-    $("input[type='checkbox']").click(function() {
-        if ($(this).is(':checked')) {
-            $.post( "insert.php", {IdPokemon: $(this).val()}, function( data ) {
-                console.log(data);
-            });
-      
-            //alert("checked");
-        }
-        else{
-            $.post( "delete.php", {IdPokemon: $(this).val()}, function( data ) {
-                console.log(data);
-            });
-             //alert("Not checked");
-            }
-    });
-});
-</script>
+
   </div>
 
   <div id="footer">

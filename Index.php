@@ -24,3 +24,4 @@ if (isset($_SESSION['error'])) {
 
     echo $twig->render('login.html', ['error' => $error] );
 }
+?>
