@@ -1,0 +1,12 @@
+//1- Select de pokemon de cada usuario.
+
+SELECT Pokedex.NumPokemon AS NumPokemon, Pokedex.NomPokemon AS Pokemon, Pokedex.Tipo, Pokedex.Tipo2, Pokedex.Especie 
+FROM Usuarios INNER JOIN (Tipos INNER JOIN (Pokedex INNER JOIN PokeUsuarios ON Pokedex.NumPokemon = PokeUsuarios.IdPokemon) ON Tipos.Tipo = Pokedex.Tipo) ON Usuarios.Id = PokeUsuarios.IdUsuario WHERE Usuarios.Nombre = "$usuario" 
+ORDER BY Usuarios.Id, Pokedex.NumPokemon;
+
+//2-Select por region
+
+SELECT Pokedex.NumPokemon, Pokedex.NomPokemon, Pokedex.Tipo, Pokedex.Tipo2
+FROM Generacion INNER JOIN Pokedex ON Generacion.Generacion = Pokedex.Generacion
+WHERE (((Pokedex.generacion)=1))
+ORDER BY Pokedex.NumPokemon;
