@@ -6,7 +6,7 @@ if (!isset($_SESSION['user'])) {
 include '../conexion.php';
 $usuario = $_SESSION['user'];
  
-$query = "SELECT Pokedex.NumPokemon AS NumPokemon, Pokedex.foto, Pokedex.NomPokemon AS Pokemon, Pokedex.Tipo, Pokedex.Tipo2, Pokedex.Especie FROM Usuarios INNER JOIN (Tipos INNER JOIN (Pokedex INNER JOIN PokeUsuarios ON Pokedex.NumPokemon = PokeUsuarios.IdPokemon) ON Tipos.Tipo = Pokedex.Tipo) ON Usuarios.Id = PokeUsuarios.IdUsuario WHERE Usuarios.Nombre = '$usuario' ORDER BY Usuarios.Id, Pokedex.NumPokemon;";
+$query = "SELECT Pokedex.NumPokemon AS NumPokemon, Pokedex.foto, Pokedex.NomPokemon AS Pokemon, Pokedex.Tipo, Pokedex.Tipo2, Pokedex.Especie FROM Usuarios INNER JOIN (Tipos INNER JOIN (Pokedex INNER JOIN PokeUsuarios ON Pokedex.NumPokemon = PokeUsuarios.IdPokemon) ON Tipos.Tipo = Pokedex.Tipo) ON Usuarios.Id = PokeUsuarios.IdUsuario WHERE Usuarios.Nombre = '$usuario' group by pokedex.numpokemon ORDER BY Usuarios.Id, Pokedex.NumPokemon;";
 
 $result = mysqli_query($conn, $query);
  
