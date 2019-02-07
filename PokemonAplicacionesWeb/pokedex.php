@@ -6,8 +6,8 @@ if (!isset($_SESSION['user'])) {
 include '../conexion.php';
 
  
-$query = "SELECT NumPokemon, Foto, NomPokemon, Especie, Tipo, Tipo2 FROM pokedex order by Numpokemon";
- 
+//$query = "SELECT NumPokemon, Foto, NomPokemon, Especie, Tipo, Tipo2 FROM pokedex order by Numpokemon";
+ $query = "SELECT Pokedex.NumPokemon, Pokedex.Foto, Pokedex.NomPokemon, Pokedex.Especie, Pokedex.Tipo, Pokedex.Tipo2, PokeUsuarios.IdPokemon FROM Pokedex LEFT JOIN PokeUsuarios ON Pokedex.NumPokemon = PokeUsuarios.IdPokemon Group by pokedex.nompokemon order by Pokedex.Numpokemon;";
 $result = mysqli_query($conn, $query);
  
 
@@ -147,7 +147,19 @@ nav ul li a:hover {
     <img src="tipos/<?php echo $row[5]?>.png" width="80px" heigth="80px">
     </td>
     <td>
+    <?php
+     if($row[0]!=$row[6])
+     {
+    ?>
     <input type=checkbox id='ckb' value='<?php echo $row[0] ?>'>
+    <?php
+    }
+    else{
+    ?>
+    <input type=checkbox id='ckb' value='<?php echo $row[0] ?>' checked>
+    <?php
+    }
+    ?>
     </td>
     
     </tr>
