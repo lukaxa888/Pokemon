@@ -3,7 +3,7 @@
 <?php
 session_start();
 if (isset($_SESSION['user'])) {   
-    header('Location: PokemonAplicacionesWeb/pokedex.php');
+    header('Location: PokemonAplicacionesWeb/inicio.php');
 }
 else {
 // carga todas las dependencias (twig, ...)
