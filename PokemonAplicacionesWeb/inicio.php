@@ -103,9 +103,10 @@ nav ul li a:hover {
   </ul>
 </nav>
     </div>
-
-    <br><br><br><br>
-    <img src="pikachu.gif" width="250" height="400">
+    <br>
+    <img src="hola.png" >
+    <br><br>
+    <img src="ray.gif" width="450" height="450">
     </center>
     <div id="footer">
   </div>
