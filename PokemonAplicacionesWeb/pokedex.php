@@ -7,7 +7,7 @@ include '../conexion.php';
 
  
 //$query = "SELECT NumPokemon, Foto, NomPokemon, Especie, Tipo, Tipo2 FROM pokedex order by Numpokemon";
- $query = "SELECT Pokedex.NumPokemon, Pokedex.Foto, Pokedex.NomPokemon, Pokedex.Especie, Pokedex.Tipo, Pokedex.Tipo2, PokeUsuarios.IdPokemon FROM Pokedex Group by pokedex.nompokemon order by Pokedex.Numpokemon;";
+ $query = "SELECT Pokedex.NumPokemon, Pokedex.Foto, Pokedex.NomPokemon, Pokedex.Especie, Pokedex.Tipo, Pokedex.Tipo2 FROM Pokedex Group by pokedex.nompokemon order by Pokedex.Numpokemon;";
 $result = mysqli_query($conn, $query);
  
 // LEFT JOIN PokeUsuarios ON Pokedex.NumPokemon = PokeUsuarios.IdPokemon
